@@ -6,7 +6,7 @@ All scripts were written using python3 and the requests library.
 
 
 ## Methodology (You can skip to the solution section if you just want the tl;dr version)
-
+[skip to solution](#solution-tldr-version)
 ### Initial Probing
 The challenge prompt directed us to a website. The first thing to catch my eye there was the search field that was available.
 ![alt text](images/web_page_header.png "SQLi vuln target")
