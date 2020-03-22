@@ -258,7 +258,7 @@ Example truth payload:
 Example false payload:
 `1')/**/AND/**/1=2;#`
 
-Using the queries from the perspective risk sqli cheat sheet as a base, I modified them to avoid being filtered out (removing whitespace and rewriting the queries to not use commas).
+Using the queries from the [perspective risk sqli cheat sheet](https://www.perspectiverisk.com/mysql-sql-injection-practical-cheat-sheet/) as a base, I modified them to avoid being filtered out (removing whitespace and rewriting the queries to not use commas).
 I then made some [python scripts](python_scripts):
 ```
 get_db_name.py 		#Get a database name
