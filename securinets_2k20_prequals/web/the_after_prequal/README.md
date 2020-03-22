@@ -2,6 +2,8 @@
 
 I decided to also add the methodology I used to get to the solution. This may not be the most effective way and I built some scripts to handle part of the tasks here. I'm sure there was a way to configure sqlmap to accomplish this as well, but sqlmap was not used in this solution. I attempted to do this in a way that would help me get a better technical understanding of sqli attacks.
 
+All scripts were written using python3 and the requests library.
+
 
 ## Methodology (You can skip to the solution section if you just want the tl;dr version)
 
@@ -87,7 +89,7 @@ returned a blank page.
 ### Exfiltration (w/ python) - Table Value dumps
 Now I got something I can work with. The queries from the sqli cheat sheet had to be modified so that they wouldn't be filtered. I used this one as a test one:
 `1')/**/AND/**/(ascii(substr((SELECT/**/schema_name/**/FROM/**/information_schema.schemata/**/LIMIT/**/1/**/OFFSET/**/0)/**/FROM/**/1/**/FOR/**/1)))/**/>/**/95;#`
-This is the fully constructed boolean inferential sqli I will use. To prove this works I'll try and get the database name 'db' which I already know exists. I wrote a script to do this which I will add in another directory. I'll also add some comments at the top of the scripts to explain how they work a bit. The last output line is usually the full string we wanted. The array above it will usually be the ascii decimal representation of that string. 
+This is the fully constructed boolean inferential sqli I will use. To prove this works I'll try and get the database name 'db' which I already know exists. I wrote a script to do this (in python 3) which I will add in [this directory](python_scripts). I'll also add some comments at the top of the scripts to explain how they work a bit. The last output line is usually the full string we wanted. The array above it will usually be the ascii decimal representation of that string.
 
 I already knew the databse name was 'db' from the error message I got earlier. And my script confirmed it:
 ```
@@ -257,7 +259,7 @@ Example false payload:
 `1')/**/AND/**/1=2;#`
 
 Using the queries from the perspective risk sqli cheat sheet as a base, I modified them to avoid being filtered out (removing whitespace and rewriting the queries to not use commas).
-I then made some python scripts:
+I then made some [python scripts](python_scripts):
 ```
 get_db_name.py 		#Get a database name
 get_table_names.py 	#Get a table name in a specified database
