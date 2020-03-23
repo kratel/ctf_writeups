@@ -216,7 +216,9 @@ secrets
 ```
 
 Secrets seems like the juicy one so I then modified my sql injection strings to extract column names.
-The columns found for the secrets table were: name and value
+The columns found for the secrets table were:
+- name
+- value
 ```
 $ python get_column_names.py 
 ...
